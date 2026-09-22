@@ -1,0 +1,2249 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --pink: #ff4f9a;
+  --pink-dark: #e93683;
+  --purple: #7c4dff;
+  --blue: #4b8cff;
+  --dark: #090b20;
+  --panel: rgba(14, 16, 42, 0.96);
+  --white: #ffffff;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  background: #080a1d;
+  color: white;
+
+  overflow-x: hidden;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+
+/* ==================================================
+   GENERAL
+================================================== */
+
+.hidden {
+  display: none !important;
+}
+
+.screen {
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+/* ==================================================
+   LOGIN
+================================================== */
+
+.login-screen {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(255, 79, 154, 0.3),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 50% 90%,
+      rgba(124, 77, 255, 0.3),
+      transparent 40%
+    ),
+    #080a1d;
+}
+
+.login-card {
+  width: min(430px, 100%);
+
+  padding: 45px 30px;
+
+  text-align: center;
+
+  border-radius: 30px;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(20px);
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.5);
+}
+
+.login-heart {
+  font-size: 75px;
+
+  animation:
+    heartbeat 1.3s infinite;
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+.login-card h1 {
+  margin-top: 12px;
+
+  font-size: 38px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ff66ad,
+      #9b75ff
+    );
+
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.login-card p {
+  color: #b9b9c8;
+
+  margin: 10px 0 25px;
+}
+
+.login-card input {
+  width: 100%;
+
+  padding: 16px;
+
+  border-radius: 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  background: rgba(0, 0, 0, 0.3);
+
+  color: white;
+
+  outline: none;
+
+  text-align: center;
+
+  margin-bottom: 14px;
+}
+
+.login-card input:focus {
+  border-color: var(--pink);
+}
+
+.primary-button {
+  width: 100%;
+
+  padding: 16px;
+
+  border-radius: 14px;
+
+  color: white;
+
+  font-weight: bold;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--pink),
+      var(--purple)
+    );
+
+  transition: 0.25s;
+}
+
+.primary-button:hover {
+  transform: translateY(-2px);
+}
+
+
+/* ==================================================
+   TOP BAR
+================================================== */
+
+.game-screen {
+  min-height: 100vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  background: #080a1d;
+}
+
+.topbar {
+  height: 68px;
+
+  flex-shrink: 0;
+
+  display: grid;
+
+  grid-template-columns: 1fr auto 1fr;
+
+  align-items: center;
+
+  padding: 0 22px;
+
+  background:
+    rgba(8, 10, 29, 0.94);
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(15px);
+
+  z-index: 100;
+}
+
+.profile {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  font-weight: bold;
+}
+
+.profile-icon {
+  font-size: 20px;
+}
+
+.top-title {
+  font-weight: bold;
+
+  font-size: 18px;
+
+  color: #ff7bb8;
+}
+
+.top-actions {
+  display: flex;
+
+  justify-content: flex-end;
+
+  align-items: center;
+
+  gap: 15px;
+}
+
+.money {
+  color: #ffd85b;
+
+  font-size: 18px;
+}
+
+.top-actions button {
+  padding: 11px 16px;
+
+  border-radius: 12px;
+
+  color: white;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  transition: 0.2s;
+}
+
+.top-actions button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+
+/* ==================================================
+   WORLD
+================================================== */
+
+.world {
+  flex: 1;
+
+  min-height: 650px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      #6ebce8 0%,
+      #9bd6ec 38%,
+      #d3f0e0 65%,
+      #75b85b 66%,
+      #4f913f 100%
+    );
+}
+
+.environment {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+}
+
+.sun {
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  border-radius: 50%;
+
+  background: #ffe98a;
+
+  top: 55px;
+  right: 13%;
+
+  box-shadow:
+    0 0 70px rgba(255, 238, 130, 0.8);
+}
+
+.cloud {
+  position: absolute;
+
+  font-size: 65px;
+
+  opacity: 0.85;
+
+  animation: cloudMove 18s linear infinite;
+}
+
+.cloud-one {
+  top: 70px;
+  left: 8%;
+}
+
+.cloud-two {
+  top: 140px;
+  right: 30%;
+
+  animation-delay: -7s;
+}
+
+@keyframes cloudMove {
+  from {
+    transform: translateX(-30px);
+  }
+
+  50% {
+    transform: translateX(40px);
+  }
+
+  to {
+    transform: translateX(-30px);
+  }
+}
+
+.ground {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 35%;
+
+  pointer-events: none;
+}
+
+.grass {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    repeating-linear-gradient(
+      70deg,
+      transparent 0 15px,
+      rgba(255, 255, 255, 0.04) 16px 18px
+    );
+}
+
+.tree {
+  position: absolute;
+
+  bottom: 35px;
+
+  font-size: 100px;
+
+  filter: drop-shadow(
+    0 10px 5px rgba(0, 0, 0, 0.15)
+  );
+}
+
+.tree-one {
+  left: 4%;
+}
+
+.tree-two {
+  right: 5%;
+}
+
+.flower {
+  position: absolute;
+
+  bottom: 15px;
+
+  font-size: 38px;
+}
+
+.flower-one {
+  left: 20%;
+}
+
+.flower-two {
+  left: 35%;
+}
+
+.flower-three {
+  right: 28%;
+}
+
+.flower-four {
+  right: 18%;
+}
+
+
+/* ==================================================
+   CHARACTERS
+================================================== */
+
+.characters {
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 90px;
+
+  transform: translateX(-50%);
+
+  width: min(900px, 90%);
+
+  height: 510px;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-around;
+
+  z-index: 20;
+
+  transition: 0.4s;
+}
+
+.character {
+  width: 230px;
+
+  height: 470px;
+
+  position: relative;
+
+  transition:
+    transform 0.6s ease;
+}
+
+
+/* ==================================================
+   HEAD
+================================================== */
+
+.character-head {
+  position: absolute;
+
+  left: 45px;
+
+  top: 28px;
+
+  width: 140px;
+
+  height: 150px;
+
+  z-index: 10;
+}
+
+.character-face {
+  position: absolute;
+
+  left: 15px;
+  top: 20px;
+
+  width: 110px;
+  height: 125px;
+
+  border-radius:
+    48% 48%
+    45% 45%;
+
+  background: #f4bd91;
+
+  border:
+    2px solid rgba(100, 45, 20, 0.15);
+
+  z-index: 3;
+}
+
+.girl-face {
+  background: #f5c29d;
+}
+
+
+/* EARS */
+
+.ear {
+  position: absolute;
+
+  width: 18px;
+  height: 30px;
+
+  top: 48px;
+
+  background: #efb28a;
+
+  border-radius: 50%;
+
+  z-index: 1;
+}
+
+.left-ear {
+  left: -9px;
+}
+
+.right-ear {
+  right: -9px;
+}
+
+
+/* ==================================================
+   BOY HAIR
+================================================== */
+
+.boy-hair {
+  position: absolute;
+
+  top: 3px;
+  left: 10px;
+
+  width: 130px;
+  height: 78px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #1b1621,
+      #08070c
+    );
+
+  border-radius:
+    55% 60%
+    25% 30%;
+
+  z-index: 8;
+
+  transform: rotate(-2deg);
+}
+
+.boy-hair::before {
+  content: "";
+
+  position: absolute;
+
+  width: 48px;
+  height: 45px;
+
+  left: 20px;
+  top: 35px;
+
+  background: #100c14;
+
+  border-radius: 0 0 40px 40px;
+
+  transform: rotate(-20deg);
+}
+
+
+/* ==================================================
+   GIRL HAIR
+================================================== */
+
+.girl-hair-back {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 145px;
+  height: 185px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #17111b,
+      #29202d,
+      #100c14
+    );
+
+  border-radius:
+    60px 60px
+    45px 45px;
+
+  z-index: 1;
+}
+
+.girl-hair-back::after {
+  content: "";
+
+  position: absolute;
+
+  left: -8px;
+  right: -8px;
+
+  bottom: 15px;
+
+  height: 90px;
+
+  background: #17111b;
+
+  border-radius: 0 0 45px 45px;
+}
+
+.girl-hair-front {
+  position: absolute;
+
+  top: 5px;
+  left: 4px;
+
+  width: 138px;
+  height: 75px;
+
+  background:
+    linear-gradient(
+      120deg,
+      #201721,
+      #0d0a11
+    );
+
+  border-radius:
+    65px 65px
+    30px 30px;
+
+  z-index: 8;
+}
+
+.girl-hair-front::after {
+  content: "";
+
+  position: absolute;
+
+  left: 40px;
+  bottom: -25px;
+
+  width: 55px;
+  height: 40px;
+
+  background: #17111b;
+
+  border-radius: 0 0 40px 40px;
+}
+
+
+/* ==================================================
+   EYES
+================================================== */
+
+.eye {
+  position: absolute;
+
+  top: 51px;
+
+  width: 11px;
+  height: 15px;
+
+  border-radius: 50%;
+
+  background: #17121b;
+
+  z-index: 5;
+}
+
+.eye-left {
+  left: 28px;
+}
+
+.eye-right {
+  right: 28px;
+}
+
+.girl-eyelash {
+  position: absolute;
+
+  width: 18px;
+  height: 3px;
+
+  background: #241723;
+
+  top: 48px;
+
+  z-index: 7;
+}
+
+.girl-eyelash.left {
+  left: 22px;
+
+  transform: rotate(-10deg);
+}
+
+.girl-eyelash.right {
+  right: 22px;
+
+  transform: rotate(10deg);
+}
+
+
+/* ==================================================
+   NOSE / MOUTH
+================================================== */
+
+.nose {
+  position: absolute;
+
+  left: 50%;
+
+  top: 67px;
+
+  width: 8px;
+  height: 10px;
+
+  border-right:
+    2px solid #c98769;
+
+  transform:
+    translateX(-50%);
+
+  z-index: 6;
+}
+
+.mouth {
+  position: absolute;
+
+  left: 50%;
+
+  top: 88px;
+
+  width: 24px;
+  height: 9px;
+
+  transform:
+    translateX(-50%);
+
+  border-bottom:
+    3px solid #9a3e59;
+
+  border-radius: 50%;
+
+  z-index: 6;
+
+  transition: 0.1s;
+}
+
+
+/* TALKING */
+
+.character.talking .mouth {
+  height: 17px;
+
+  border:
+    3px solid #9a3e59;
+
+  border-radius: 50%;
+
+  animation:
+    mouthTalk 0.18s infinite alternate;
+}
+
+@keyframes mouthTalk {
+  from {
+    transform:
+      translateX(-50%)
+      scaleY(0.6);
+  }
+
+  to {
+    transform:
+      translateX(-50%)
+      scaleY(1.15);
+  }
+}
+
+
+/* ==================================================
+   BLUSH
+================================================== */
+
+.blush {
+  position: absolute;
+
+  width: 20px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 95, 130, 0.35);
+
+  top: 78px;
+
+  z-index: 6;
+
+  opacity: 0;
+}
+
+.blush-left {
+  left: 12px;
+}
+
+.blush-right {
+  right: 12px;
+}
+
+.girl.shy .blush {
+  opacity: 1;
+}
+
+
+/* ==================================================
+   NECK
+================================================== */
+
+.character-neck {
+  position: absolute;
+
+  top: 164px;
+  left: 101px;
+
+  width: 30px;
+  height: 30px;
+
+  background: #efb58d;
+
+  z-index: 4;
+}
+
+
+/* ==================================================
+   BODY
+================================================== */
+
+.character-body {
+  position: absolute;
+
+  left: 55px;
+  top: 180px;
+
+  width: 120px;
+  height: 175px;
+
+  border-radius:
+    35px 35px
+    18px 18px;
+
+  z-index: 3;
+}
+
+.boy-body {
+  background:
+    linear-gradient(
+      135deg,
+      #236ac7,
+      #154891
+    );
+}
+
+.girl-body {
+  background:
+    linear-gradient(
+      135deg,
+      #f04d98,
+      #c52c78
+    );
+
+  border-radius:
+    45px 45px
+    18px 18px;
+}
+
+.shirt-logo {
+  position: absolute;
+
+  left: 50%;
+  top: 45px;
+
+  transform:
+    translateX(-50%);
+
+  color: #ffe36a;
+
+  font-size: 28px;
+}
+
+.dress-bow {
+  position: absolute;
+
+  left: 50%;
+  top: 45px;
+
+  transform:
+    translateX(-50%);
+
+  color: #ffe36a;
+
+  font-size: 25px;
+}
+
+
+/* ==================================================
+   ARMS
+================================================== */
+
+.arm {
+  position: absolute;
+
+  top: 8px;
+
+  width: 32px;
+  height: 130px;
+
+  background: #efb58d;
+
+  border-radius: 20px;
+
+  transform-origin: top center;
+
+  transition:
+    transform 0.6s ease;
+}
+
+.arm-left {
+  left: -25px;
+
+  transform:
+    rotate(10deg);
+}
+
+.arm-right {
+  right: -25px;
+
+  transform:
+    rotate(-10deg);
+}
+
+
+/* ==================================================
+   LEGS
+================================================== */
+
+.character-legs {
+  position: absolute;
+
+  left: 73px;
+  top: 350px;
+
+  display: flex;
+
+  gap: 14px;
+
+  z-index: 2;
+}
+
+.leg {
+  width: 37px;
+  height: 105px;
+
+  background: #26365c;
+
+  border-radius:
+    0 0 12px 12px;
+}
+
+.girl-leg {
+  background: #f0b58b;
+}
+
+
+/* ==================================================
+   SPEECH BUBBLE
+================================================== */
+
+.speech-bubble {
+  position: absolute;
+
+  left: 50%;
+  top: -35px;
+
+  transform:
+    translateX(-50%);
+
+  width: 270px;
+
+  min-height: 70px;
+
+  padding: 17px 20px;
+
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  color: #191421;
+
+  background: white;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 15px 35px
+    rgba(0, 0, 0, 0.2);
+
+  z-index: 100;
+
+  font-weight: bold;
+
+  line-height: 1.4;
+}
+
+.speech-bubble::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: -13px;
+
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  border:
+    13px solid transparent;
+
+  border-top-color: white;
+
+  border-bottom: 0;
+}
+
+.character.talking .speech-bubble {
+  display: flex;
+}
+
+
+/* ==================================================
+   WEARABLES
+================================================== */
+
+.wearable {
+  position: absolute;
+
+  display: none;
+
+  z-index: 30;
+}
+
+.character.wearing-watch .boy-watch,
+.character.wearing-watch .girl-watch {
+  display: block;
+}
+
+.character.wearing-necklace .girl-necklace {
+  display: block;
+}
+
+.character.wearing-bracelet .boy-bracelet,
+.character.wearing-bracelet .girl-bracelet {
+  display: block;
+}
+
+.character.wearing-ring .boy-ring,
+.character.wearing-ring .girl-ring {
+  display: block;
+}
+
+.character.wearing-shoes .boy-shoes,
+.character.wearing-shoes .girl-shoes {
+  display: block;
+}
+
+.character.wearing-glasses .boy-glasses,
+.character.wearing-glasses .girl-glasses {
+  display: block;
+}
+
+.character.wearing-cap .boy-cap,
+.character.wearing-cap .girl-cap {
+  display: block;
+}
+
+.character.wearing-bag .boy-bag,
+.character.wearing-bag .girl-bag {
+  display: block;
+}
+
+
+/* WATCH */
+
+.boy-watch,
+.girl-watch {
+  left: 26px;
+  top: 275px;
+
+  font-size: 28px;
+
+  filter:
+    drop-shadow(
+      0 3px 3px
+      rgba(0, 0, 0, 0.3)
+    );
+}
+
+
+/* NECKLACE */
+
+.girl-necklace {
+  left: 73px;
+  top: 187px;
+
+  font-size: 38px;
+}
+
+
+/* BRACELET */
+
+.boy-bracelet,
+.girl-bracelet {
+  width: 32px;
+  height: 15px;
+
+  left: 21px;
+  top: 278px;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ffd34d,
+      #fff2a4,
+      #d59b18
+    );
+}
+
+
+/* RING */
+
+.boy-ring,
+.girl-ring {
+  left: 27px;
+  top: 294px;
+
+  font-size: 16px;
+}
+
+
+/* SHOES */
+
+.boy-shoes,
+.girl-shoes {
+  left: 57px;
+  top: 440px;
+
+  font-size: 35px;
+}
+
+
+/* GLASSES */
+
+.boy-glasses,
+.girl-glasses {
+  left: 75px;
+  top: 94px;
+
+  font-size: 32px;
+}
+
+
+/* CAP */
+
+.boy-cap,
+.girl-cap {
+  left: 35px;
+  top: -5px;
+
+  font-size: 45px;
+}
+
+
+/* BAG */
+
+.boy-bag,
+.girl-bag {
+  left: 164px;
+  top: 230px;
+
+  font-size: 42px;
+}
+
+
+/* FLOWER */
+
+.girl-held-flower {
+  position: absolute;
+
+  left: 13px;
+  top: 245px;
+
+  font-size: 48px;
+
+  display: none;
+
+  z-index: 50;
+}
+
+.girl.has-flower .girl-held-flower {
+  display: block;
+
+  animation:
+    flowerReceive 0.7s ease;
+}
+
+@keyframes flowerReceive {
+  0% {
+    transform:
+      scale(0)
+      rotate(-40deg);
+  }
+
+  100% {
+    transform:
+      scale(1)
+      rotate(0);
+  }
+}
+
+
+/* ==================================================
+   ACTION BUTTONS
+================================================== */
+
+.action-buttons {
+  position: absolute;
+
+  top: 20px;
+
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  width: min(900px, 94%);
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  z-index: 80;
+}
+
+.action-buttons button {
+  padding: 12px 18px;
+
+  border-radius: 13px;
+
+  color: white;
+
+  font-weight: bold;
+
+  background:
+    rgba(12, 15, 40, 0.78);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.16);
+
+  backdrop-filter: blur(10px);
+
+  transition: 0.2s;
+}
+
+.action-buttons button:hover {
+  transform:
+    translateY(-3px);
+
+  background:
+    rgba(255, 79, 154, 0.8);
+}
+
+
+/* ==================================================
+   DIALOGUE
+================================================== */
+
+.dialogue {
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 20px;
+
+  transform:
+    translateX(-50%);
+
+  width: min(750px, 92%);
+
+  padding: 20px;
+
+  border-radius: 20px;
+
+  background:
+    rgba(8, 10, 29, 0.95);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.1);
+
+  backdrop-filter: blur(15px);
+
+  z-index: 100;
+}
+
+.speaker {
+  color: #ff72b5;
+
+  font-weight: bold;
+
+  margin-bottom: 8px;
+}
+
+.dialogue-text {
+  min-height: 28px;
+
+  line-height: 1.5;
+
+  font-size: 17px;
+}
+
+.next-button {
+  width: 100%;
+
+  margin-top: 15px;
+
+  padding: 14px;
+
+  border-radius: 12px;
+
+  color: white;
+
+  font-weight: bold;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--pink),
+      var(--purple)
+    );
+
+  transition: 0.2s;
+}
+
+.next-button:hover {
+  filter: brightness(1.12);
+}
+
+
+/* ==================================================
+   SPECIAL CHARACTER ACTIONS
+================================================== */
+
+.proposing .boy {
+  transform:
+    translateY(75px)
+    rotate(-4deg);
+}
+
+.proposing .boy .arm-right {
+  transform:
+    rotate(-75deg);
+}
+
+.proposing .girl {
+  transform:
+    translateY(-5px);
+}
+
+.shy .girl {
+  transform:
+    translateY(-5px)
+    rotate(1deg);
+}
+
+.shy .girl .arm-left {
+  transform:
+    rotate(-35deg);
+}
+
+.hugging .boy {
+  transform:
+    translateX(80px);
+}
+
+.hugging .girl {
+  transform:
+    translateX(-80px);
+}
+
+.hug-heart {
+  position: absolute;
+
+  left: 50%;
+  top: 45%;
+
+  transform:
+    translate(-50%, -50%);
+
+  font-size: 80px;
+
+  z-index: 150;
+
+  animation:
+    hugHeart 0.8s infinite alternate;
+}
+
+@keyframes hugHeart {
+  from {
+    transform:
+      translate(-50%, -50%)
+      scale(0.9);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      scale(1.1);
+  }
+}
+
+
+/* ==================================================
+   FOOD
+================================================== */
+
+.floating-food {
+  position: absolute;
+
+  left: 50%;
+  top: 45%;
+
+  transform:
+    translate(-50%, -50%);
+
+  font-size: 70px;
+
+  z-index: 150;
+
+  animation:
+    foodMove 1.8s forwards;
+}
+
+@keyframes foodMove {
+  0% {
+    left: 50%;
+    top: 45%;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
+
+  70% {
+    left: 58%;
+    top: 35%;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.7);
+  }
+
+  100% {
+    left: 58%;
+    top: 29%;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.25);
+  }
+}
+
+
+/* ==================================================
+   GAME
+================================================== */
+
+.game-ball {
+  position: absolute;
+
+  left: 20%;
+
+  top: 55%;
+
+  font-size: 70px;
+
+  z-index: 100;
+
+  animation:
+    ballGame 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes ballGame {
+  from {
+    transform:
+      translateX(0)
+      rotate(0);
+  }
+
+  to {
+    transform:
+      translateX(420px)
+      translateY(-120px)
+      rotate(360deg);
+  }
+}
+
+
+/* ==================================================
+   GARDEN
+================================================== */
+
+.garden-mode {
+  background:
+    linear-gradient(
+      180deg,
+      #79b8df,
+      #c6e8db 50%,
+      #72b957 51%,
+      #428d38
+    );
+}
+
+.garden-title {
+  position: absolute;
+
+  left: 50%;
+  top: 100px;
+
+  transform:
+    translateX(-50%);
+
+  z-index: 30;
+
+  padding: 15px 25px;
+
+  border-radius: 20px;
+
+  background:
+    rgba(20, 50, 35, 0.8);
+
+  font-weight: bold;
+
+  font-size: 22px;
+}
+
+.garden-flower {
+  position: absolute;
+
+  font-size: 65px;
+
+  cursor: pointer;
+
+  z-index: 40;
+
+  transition: 0.2s;
+}
+
+.garden-flower:hover {
+  transform:
+    scale(1.25)
+    rotate(10deg);
+}
+
+
+/* ==================================================
+   GIFT / PLANET
+================================================== */
+
+.gift-box {
+  position: absolute;
+
+  left: 50%;
+  top: 48%;
+
+  transform:
+    translate(-50%, -50%);
+
+  font-size: 130px;
+
+  z-index: 200;
+
+  animation:
+    giftPulse 1s infinite alternate;
+}
+
+@keyframes giftPulse {
+  from {
+    transform:
+      translate(-50%, -50%)
+      scale(0.95);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      scale(1.08);
+  }
+}
+
+.balloon-effect {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  font-size: 80px;
+
+  white-space: nowrap;
+
+  z-index: 200;
+
+  animation:
+    balloonRise 2s forwards;
+}
+
+@keyframes balloonRise {
+  from {
+    transform:
+      translate(-50%, -50%)
+      scale(0.6);
+  }
+
+  to {
+    transform:
+      translate(-50%, -150%)
+      scale(1.2);
+  }
+}
+
+.love-planet {
+  position: absolute;
+
+  left: 50%;
+  top: 45%;
+
+  transform:
+    translate(-50%, -50%);
+
+  font-size: 170px;
+
+  z-index: 200;
+
+  animation:
+    planetSpin 5s linear infinite;
+}
+
+@keyframes planetSpin {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(0);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(360deg);
+  }
+}
+
+
+/* ==================================================
+   BOTTOM NAV
+================================================== */
+
+.bottom-navigation {
+  height: 70px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  padding: 8px 15px;
+
+  background:
+    rgba(8, 10, 29, 0.98);
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  z-index: 110;
+}
+
+.bottom-navigation button {
+  min-width: 125px;
+
+  padding: 12px 15px;
+
+  border-radius: 13px;
+
+  color: white;
+
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  transition: 0.2s;
+}
+
+.bottom-navigation button:hover {
+  background:
+    rgba(255, 79, 154, 0.7);
+
+  transform:
+    translateY(-2px);
+}
+
+.bottom-navigation span {
+  margin-left: 5px;
+}
+
+
+/* ==================================================
+   OVERLAY PANELS
+================================================== */
+
+.overlay-panel {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 500;
+
+  padding: 40px 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+    rgba(0, 0, 0, 0.72);
+
+  backdrop-filter: blur(8px);
+}
+
+.panel-box {
+  width: min(1000px, 100%);
+
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  padding: 28px;
+
+  border-radius: 25px;
+
+  background:
+    rgba(13, 15, 39, 0.98);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.12);
+}
+
+.panel-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 25px;
+}
+
+.panel-header h2 {
+  font-size: 27px;
+
+  margin-bottom: 5px;
+}
+
+.panel-header p {
+  color: #a8a8b8;
+}
+
+.close-button {
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+
+  color: white;
+
+  background:
+    rgba(255, 255, 255, 0.08);
+
+  font-size: 18px;
+}
+
+
+/* ==================================================
+   ITEM GRID
+================================================== */
+
+.items-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(190px, 1fr)
+    );
+
+  gap: 17px;
+}
+
+.item-card {
+  padding: 20px;
+
+  text-align: center;
+
+  border-radius: 18px;
+
+  background:
+    rgba(255, 255, 255, 0.06);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.1);
+
+  transition:
+    transform 0.2s,
+    background 0.2s;
+}
+
+.item-card:hover {
+  transform:
+    translateY(-5px);
+
+  background:
+    rgba(255, 255, 255, 0.1);
+}
+
+.item-icon {
+  font-size: 55px;
+
+  margin-bottom: 10px;
+}
+
+.item-card h3 {
+  margin-bottom: 7px;
+}
+
+.item-card p {
+  color: #aaa;
+
+  font-size: 13px;
+
+  min-height: 38px;
+
+  line-height: 1.4;
+}
+
+.item-card button {
+  width: 100%;
+
+  padding: 11px;
+
+  border-radius: 10px;
+
+  margin-top: 12px;
+
+  color: white;
+
+  font-weight: bold;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--pink),
+      var(--purple)
+    );
+}
+
+
+/* ==================================================
+   MODALS
+================================================== */
+
+.modal {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 700;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 20px;
+
+  background:
+    rgba(0, 0, 0, 0.78);
+
+  backdrop-filter: blur(8px);
+}
+
+.modal-card {
+  width: min(420px, 100%);
+
+  padding: 30px;
+
+  text-align: center;
+
+  border-radius: 25px;
+
+  background:
+    #12152f;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.12);
+
+  box-shadow:
+    0 30px 80px
+    rgba(0, 0, 0, 0.6);
+}
+
+.modal-icon {
+  font-size: 65px;
+
+  margin-bottom: 10px;
+}
+
+.modal-card h2 {
+  margin-bottom: 10px;
+}
+
+.modal-card p {
+  color: #aaa;
+
+  line-height: 1.5;
+
+  margin-bottom: 20px;
+}
+
+.modal-actions {
+  display: flex;
+
+  gap: 10px;
+}
+
+.modal-actions button,
+.success-card button {
+  flex: 1;
+
+  padding: 13px;
+
+  border-radius: 11px;
+
+  font-weight: bold;
+}
+
+.success-button {
+  color: white;
+
+  background:
+    #22bd76;
+}
+
+.cancel-button {
+  color: white;
+
+  background:
+    rgba(255, 255, 255, 0.1);
+}
+
+
+/* ==================================================
+   RESPONSIVE - TABLET
+================================================== */
+
+@media (max-width: 900px) {
+
+  .topbar {
+    grid-template-columns:
+      1fr auto;
+  }
+
+  .top-title {
+    display: none;
+  }
+
+  .characters {
+    width: 100%;
+
+    height: 500px;
+  }
+
+  .character {
+    transform:
+      scale(0.88);
+  }
+
+  .bottom-navigation button {
+    min-width: 100px;
+  }
+}
+
+
+/* ==================================================
+   RESPONSIVE - MOBILE
+================================================== */
+
+@media (max-width: 650px) {
+
+  .topbar {
+    height: 60px;
+
+    padding: 0 10px;
+  }
+
+  .profile {
+    font-size: 13px;
+  }
+
+  .money {
+    display: none;
+  }
+
+  .top-actions button {
+    padding: 8px 10px;
+
+    font-size: 11px;
+  }
+
+  .world {
+    min-height: 650px;
+  }
+
+  .characters {
+    bottom: 100px;
+
+    width: 100%;
+
+    height: 420px;
+
+    justify-content:
+      space-between;
+
+    padding: 0 5px;
+  }
+
+  .character {
+    transform:
+      scale(0.64);
+  }
+
+  .character:hover {
+    transform:
+      scale(0.64);
+  }
+
+  .speech-bubble {
+    width: 210px;
+
+    font-size: 13px;
+
+    top: -25px;
+  }
+
+  .action-buttons {
+    top: 10px;
+
+    gap: 6px;
+  }
+
+  .action-buttons button {
+    padding: 8px 10px;
+
+    font-size: 11px;
+  }
+
+  .dialogue {
+    bottom: 10px;
+
+    padding: 15px;
+
+    width: calc(100% - 18px);
+  }
+
+  .dialogue-text {
+    font-size: 14px;
+  }
+
+  .bottom-navigation {
+    height: 65px;
+
+    gap: 5px;
+
+    padding: 6px;
+  }
+
+  .bottom-navigation button {
+    min-width: 0;
+
+    flex: 1;
+
+    padding: 9px 4px;
+
+    font-size: 10px;
+  }
+
+  .bottom-navigation span {
+    display: block;
+
+    margin: 3px 0 0;
+  }
+
+  .panel-box {
+    padding: 18px;
+
+    max-height: 94vh;
+  }
+
+  .items-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 10px;
+  }
+
+  .item-card {
+    padding: 13px 8px;
+  }
+
+  .item-icon {
+    font-size: 42px;
+  }
+
+  .item-card h3 {
+    font-size: 14px;
+  }
+
+  .item-card p {
+    font-size: 11px;
+  }
+
+  .tree {
+    font-size: 70px;
+  }
+
+  .sun {
+    width: 65px;
+    height: 65px;
+  }
+
+  .garden-title {
+    font-size: 16px;
+
+    top: 80px;
+  }
+}
+
+
+/* ==================================================
+   VERY SMALL PHONES
+================================================== */
+
+@media (max-width: 390px) {
+
+  .character {
+    transform:
+      scale(0.56);
+  }
+
+  .action-buttons button {
+    font-size: 9px;
+
+    padding: 7px;
+  }
+
+  .items-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .login-card h1 {
+    font-size: 30px;
+  }
+}

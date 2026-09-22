@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Love Adventure</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ================= LOGIN ================= -->
+
+  <section id="loginScreen" class="screen login-screen">
+
+    <div class="login-card">
+
+      <div class="login-heart">💗</div>
+
+      <h1>Love Adventure</h1>
+
+      <p>
+        Enter your name and start your adventure
+      </p>
+
+      <input
+        id="nameInput"
+        type="text"
+        maxlength="25"
+        placeholder="Type your name..."
+        autocomplete="off"
+      />
+
+      <button id="startButton" class="primary-button">
+        START ADVENTURE ❤️
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= GAME ================= -->
+
+  <section id="gameScreen" class="screen game-screen hidden">
+
+    <!-- TOP BAR -->
+
+    <header class="topbar">
+
+      <div class="profile">
+        <span class="profile-icon">👤</span>
+        <span id="playerName"></span>
+      </div>
+
+      <div class="top-title">
+        ❤️ Love Adventure
+      </div>
+
+      <div class="top-actions">
+
+        <div class="money">
+          💰 <strong>∞</strong>
+        </div>
+
+        <button id="collectionButton">
+          🎒 COLLECTION
+        </button>
+
+      </div>
+
+    </header>
+
+
+    <!-- MAIN WORLD -->
+
+    <main id="world" class="world">
+
+      <div id="environment" class="environment">
+
+        <div class="sun"></div>
+
+        <div class="cloud cloud-one">☁️</div>
+        <div class="cloud cloud-two">☁️</div>
+
+        <div class="ground">
+
+          <div class="grass"></div>
+
+          <div class="tree tree-one">🌳</div>
+          <div class="tree tree-two">🌳</div>
+
+          <div class="flower flower-one">🌷</div>
+          <div class="flower flower-two">🌸</div>
+          <div class="flower flower-three">🌼</div>
+          <div class="flower flower-four">🌺</div>
+
+        </div>
+
+      </div>
+
+
+      <!-- CHARACTERS -->
+
+      <div id="characters" class="characters">
+
+        <!-- ================= BOY ================= -->
+
+        <div id="boy" class="character boy">
+
+          <div id="boyBubble" class="speech-bubble">
+            <span id="boyBubbleText"></span>
+          </div>
+
+          <div class="character-head">
+
+            <div class="boy-hair"></div>
+
+            <div class="character-face">
+
+              <div class="ear left-ear"></div>
+              <div class="ear right-ear"></div>
+
+              <div class="eye eye-left"></div>
+              <div class="eye eye-right"></div>
+
+              <div class="nose"></div>
+
+              <div class="mouth"></div>
+
+            </div>
+
+          </div>
+
+          <div class="character-neck"></div>
+
+          <div class="character-body boy-body">
+
+            <div class="shirt-logo">★</div>
+
+            <div class="arm arm-left"></div>
+            <div class="arm arm-right"></div>
+
+          </div>
+
+          <div class="character-legs">
+
+            <div class="leg leg-left"></div>
+            <div class="leg leg-right"></div>
+
+          </div>
+
+          <!-- BOY WEARABLES -->
+
+          <div id="boyWatch" class="wearable boy-watch">
+            ⌚
+          </div>
+
+          <div id="boyBracelet" class="wearable boy-bracelet"></div>
+
+          <div id="boyRing" class="wearable boy-ring">💍</div>
+
+          <div id="boyShoes" class="wearable boy-shoes">
+            👟
+          </div>
+
+          <div id="boyGlasses" class="wearable boy-glasses">
+            🕶️
+          </div>
+
+          <div id="boyCap" class="wearable boy-cap">
+            🧢
+          </div>
+
+          <div id="boyBag" class="wearable boy-bag">
+            🎒
+          </div>
+
+        </div>
+
+
+        <!-- ================= GIRL ================= -->
+
+        <div id="girl" class="character girl">
+
+          <div id="girlBubble" class="speech-bubble">
+            <span id="girlBubbleText"></span>
+          </div>
+
+          <div class="character-head">
+
+            <div class="girl-hair-back"></div>
+
+            <div class="character-face girl-face">
+
+              <div class="ear left-ear"></div>
+              <div class="ear right-ear"></div>
+
+              <div class="eye eye-left"></div>
+              <div class="eye eye-right"></div>
+
+              <div class="girl-eyelash left"></div>
+              <div class="girl-eyelash right"></div>
+
+              <div class="nose"></div>
+
+              <div class="mouth"></div>
+
+              <div class="blush blush-left"></div>
+              <div class="blush blush-right"></div>
+
+            </div>
+
+            <div class="girl-hair-front"></div>
+
+          </div>
+
+          <div class="character-neck"></div>
+
+          <div class="character-body girl-body">
+
+            <div class="dress-bow">♥</div>
+
+            <div class="arm arm-left"></div>
+            <div class="arm arm-right"></div>
+
+          </div>
+
+          <div class="character-legs">
+
+            <div class="leg girl-leg"></div>
+            <div class="leg girl-leg"></div>
+
+          </div>
+
+          <!-- GIRL WEARABLES -->
+
+          <div id="girlWatch" class="wearable girl-watch">
+            ⌚
+          </div>
+
+          <div id="girlNecklace" class="wearable girl-necklace">
+            📿
+          </div>
+
+          <div id="girlBracelet" class="wearable girl-bracelet"></div>
+
+          <div id="girlRing" class="wearable girl-ring">
+            💍
+          </div>
+
+          <div id="girlShoes" class="wearable girl-shoes">
+            👟
+          </div>
+
+          <div id="girlGlasses" class="wearable girl-glasses">
+            🕶️
+          </div>
+
+          <div id="girlCap" class="wearable girl-cap">
+            🧢
+          </div>
+
+          <div id="girlBag" class="wearable girl-bag">
+            👜
+          </div>
+
+          <div id="girlFlower" class="girl-held-flower">
+            🌸
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- EFFECT LAYER -->
+
+      <div id="effectLayer"></div>
+
+
+      <!-- ACTION BUTTONS -->
+
+      <div id="actionButtons" class="action-buttons"></div>
+
+
+      <!-- DIALOGUE -->
+
+      <div id="dialogue" class="dialogue hidden">
+
+        <div id="speaker" class="speaker">
+          👦 Boy
+        </div>
+
+        <div id="dialogueText" class="dialogue-text">
+        </div>
+
+        <button id="nextButton" class="next-button">
+          NEXT ➡️
+        </button>
+
+      </div>
+
+    </main>
+
+
+    <!-- BOTTOM NAVIGATION -->
+
+    <nav class="bottom-navigation">
+
+      <button id="homeButton">
+        🏠
+        <span>HOME</span>
+      </button>
+
+      <button id="shopButton">
+        🛍️
+        <span>SHOP</span>
+      </button>
+
+      <button id="gameButton">
+        🎮
+        <span>GAME</span>
+      </button>
+
+      <button id="foodButton">
+        🍔
+        <span>FOOD</span>
+      </button>
+
+      <button id="hugButton">
+        🤗
+        <span>HUG</span>
+      </button>
+
+    </nav>
+
+  </section>
+
+
+  <!-- ================= SHOP PANEL ================= -->
+
+  <section id="shopPanel" class="overlay-panel hidden">
+
+    <div class="panel-box">
+
+      <div class="panel-header">
+
+        <div>
+          <h2>🛍️ Shopping Mall</h2>
+          <p>💰 Money: Unlimited</p>
+        </div>
+
+        <button class="close-button" data-close="shopPanel">
+          ✕
+        </button>
+
+      </div>
+
+      <div id="shopGrid" class="items-grid"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= COLLECTION ================= -->
+
+  <section id="collectionPanel" class="overlay-panel hidden">
+
+    <div class="panel-box">
+
+      <div class="panel-header">
+
+        <div>
+          <h2>🎒 COLLECTION</h2>
+          <p>Your purchased items</p>
+        </div>
+
+        <button class="close-button" data-close="collectionPanel">
+          ✕
+        </button>
+
+      </div>
+
+      <div id="collectionGrid" class="items-grid"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= BUY MODAL ================= -->
+
+  <div id="buyModal" class="modal hidden">
+
+    <div class="modal-card">
+
+      <div id="buyIcon" class="modal-icon">
+        🎁
+      </div>
+
+      <h2 id="buyName">
+        Item
+      </h2>
+
+      <p>
+        Do you want to buy this item?
+      </p>
+
+      <div class="modal-actions">
+
+        <button id="buyNowButton" class="success-button">
+          BUY NOW
+        </button>
+
+        <button id="cancelBuyButton" class="cancel-button">
+          CANCEL
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= SUCCESS MODAL ================= -->
+
+  <div id="successModal" class="modal hidden">
+
+    <div class="modal-card success-card">
+
+      <div class="modal-icon">
+        ✅
+      </div>
+
+      <h2>SUCCESS!</h2>
+
+      <p id="successMessage">
+        Item added to collection.
+      </p>
+
+      <button id="successOkButton" class="success-button">
+        OK
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= USE / REMOVE MODAL ================= -->
+
+  <div id="useModal" class="modal hidden">
+
+    <div class="modal-card">
+
+      <div id="useIcon" class="modal-icon">
+        ⌚
+      </div>
+
+      <h2 id="useName">
+        Item
+      </h2>
+
+      <p id="useMessage">
+      </p>
+
+      <div class="modal-actions">
+
+        <button id="useYesButton" class="success-button">
+          YES
+        </button>
+
+        <button id="useNoButton" class="cancel-button">
+          NO
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
